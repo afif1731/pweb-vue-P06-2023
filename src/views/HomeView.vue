@@ -4,6 +4,5 @@ import toDoTable from '../components/toDoTable.vue';
 
 <template>
     <toDoTable/>
-    
 </template>
 
