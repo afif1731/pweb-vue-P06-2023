@@ -85,9 +85,12 @@ export const tdListAction = reactive ({
     }
  },
  changeToDo(chngTask) {
-   const taskId = this.tdListRill.findIndex((task) => task.doNum === chngTask.doNum);
+   let newTaskNum = chngTask.doNum;
+   const taskId = this.tdListRill.findIndex((task) => task.doNum === newTaskNum);
       if (taskId !== -1) {
-         tdListAction.tdListRill.splice(taskId, 1, chngTask);
+         let upTask = JSON.stringify(chngTask);
+         this.tdListRill.splice(taskId, 1, upTask);
+         localStorage.setItem(`task${chngTask.doNum}`, upTask);
       }
  }
 
