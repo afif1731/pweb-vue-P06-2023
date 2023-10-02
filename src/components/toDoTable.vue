@@ -1,8 +1,11 @@
 <template>
     <body>
         <div class="createBtn">
-            <button id="createButton" data-bs-toggle="modal"><p>Create</p></button>
+            <button id="createButton" @click="modalTgl"><p>Create</p></button>
         </div>
+        <Modal @close-modal="modalTgl" :modalKah="modalKah">
+            <createTask @close-modal="modalTgl" />
+         </Modal>
         <div class="todo">
         <table class="doTable">
             <thead>
@@ -192,11 +195,23 @@ tbody th {
 
 <script>
 import { tdListAction } from '../assets/doTable';
+import Modal from '../components/modal.vue'
+import createTask from '../components/createTask.vue'
 
 export default {
+    components: {
+        Modal,
+        createTask,
+    },
     data() {
         return {
             tdListAction,
+            modalKah: false,
+        }
+    },
+    methods: {
+        modalTgl() {
+            this.modalKah = !this.modalKah;
         }
     },
     mounted() {
