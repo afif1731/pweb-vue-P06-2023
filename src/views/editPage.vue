@@ -55,14 +55,15 @@ export default {
     data() {
         return {
             tdListAction,
-            dNum: this.$route.params.doNum,
+            dNum: parseInt(this.$route.params.doNum),
             editTask: "",
             editKat: "",
+            sdhkah: 0
         }
     },
     methods: {
         getTask() {
-            const task = this.tdListAction.tdListRill.find((task) => task.doNum === parseInt(this.dNum) || task.doNum === this.dNum);
+            const task = this.tdListAction.tdListRill.find((task) => task.doNum === this.dNum);
             if (task) {
                 this.editTask = task.tdo;
                 this.editKat = task.kategori;
@@ -70,9 +71,10 @@ export default {
         },
         changeTask(thisNum) {
             const chngTask = {
-                doNum: thisNum,
+                doNum: parseInt(thisNum),
                 tdo: this.editTask,
-                kategori: this.editKat
+                kategori: this.editKat,
+                sdh: this.sdhkah
             };
             tdListAction.changeToDo(chngTask);
             this.$router.push('/')
