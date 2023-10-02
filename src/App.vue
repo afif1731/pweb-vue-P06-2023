@@ -7,8 +7,8 @@ import { RouterLink, RouterView } from 'vue-router'
       <h1>{{ title }}</h1>
       <nav>
         <ul>
-          <li><a href="#"><router-link :to="{name: 'home'}">Beranda</router-link>></a></li>
-          <li><a href="#"><router-link :to="{name: 'about'}">Tentang</router-link></a></li>
+          <li><a href="#"><router-link :to="{name: 'home'}">Beranda</router-link></a></li>
+          <li><a href="">Tentang</a></li>
         </ul>
       </nav>
     </header>
